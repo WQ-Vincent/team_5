@@ -1,15 +1,17 @@
 {
 	"pages": [{
-		"path": "views/global/index"
+		"path": "views/global/index",
+		"style":{
+			"app-plus":{
+				"scrollIndicator":"none"
+			}
+		}
 	},
 	{
 		"path": "views/china/index"
 	},
 	{
 		"path": "views/news/index"
-	},
-	{
-		"path": "views/my/index"
 	}
 	],
 	"globalStyle": {
@@ -18,33 +20,30 @@
 	},
 	"tabBar":{
 	        "color":"#333",
-	        "selectedColor":"deepskyblue",
-	        "backgroundColor":"#eee",
+	        "selectedColor":"#3ea5ff",
+	        "backgroundColor":"#fff",
 	        "borderStyle":"black",
+			"iconWidth":"28px",
+			"spacing":"5px",
+			"height":"60px",
 	        "list":[
 			{
 				"pagePath":"views/global/index",
 	            "text":"全球",
-	            "iconPath":"./static/tabbar/Global.png",
-	            "selectedIconPath":"static/tabbar/Globaled.png"
+	            "iconPath":"./static/tabbar/global.png",
+	            "selectedIconPath":"static/tabbar/globaled.png"
             },
             {
                 "pagePath":"views/china/index",
                 "text":"中国",
                 "iconPath":"static/tabbar/china.png",
-                "selectedIconPath":"static/tabbar/Chinaed.png"
+                "selectedIconPath":"static/tabbar/chinaed.png"
             },
             {
                 "pagePath":"views/news/index",
                 "text":"动态",
-                "iconPath":"static/tabbar/news.png",
-                "selectedIconPath":"static/tabbar/newsed.png"
-            },
-            {
-                "pagePath":"views/my/index",
-                "text":"我的",
-                "iconPath":"static/tabbar/my.png",
-                "selectedIconPath":"static/tabbar/myed.png"
+                "iconPath":"static/tabbar/info.png",
+                "selectedIconPath":"static/tabbar/infoed.png"
             }
 		]
 	}
