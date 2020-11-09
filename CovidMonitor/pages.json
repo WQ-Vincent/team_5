@@ -1,0 +1,51 @@
+{
+	"pages": [{
+		"path": "views/global/index"
+	},
+	{
+		"path": "views/china/index"
+	},
+	{
+		"path": "views/news/index"
+	},
+	{
+		"path": "views/my/index"
+	}
+	],
+	"globalStyle": {
+		"navigationStyle":"custom",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar":{
+	        "color":"#333",
+	        "selectedColor":"deepskyblue",
+	        "backgroundColor":"#eee",
+	        "borderStyle":"black",
+	        "list":[
+			{
+				"pagePath":"views/global/index",
+	            "text":"全球",
+	            "iconPath":"./static/tabbar/Global.png",
+	            "selectedIconPath":"static/tabbar/Globaled.png"
+            },
+            {
+                "pagePath":"views/china/index",
+                "text":"中国",
+                "iconPath":"static/tabbar/china.png",
+                "selectedIconPath":"static/tabbar/Chinaed.png"
+            },
+            {
+                "pagePath":"views/news/index",
+                "text":"动态",
+                "iconPath":"static/tabbar/news.png",
+                "selectedIconPath":"static/tabbar/newsed.png"
+            },
+            {
+                "pagePath":"views/my/index",
+                "text":"我的",
+                "iconPath":"static/tabbar/my.png",
+                "selectedIconPath":"static/tabbar/myed.png"
+            }
+		]
+	}
+}
