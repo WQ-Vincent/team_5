@@ -39,7 +39,9 @@
                 "abiFilters" : [ "armeabi-v7a", "x86" ]
             },
             "ios" : {},
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         },
         "uniStatistics" : {
             "enable" : true

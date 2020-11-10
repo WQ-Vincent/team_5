@@ -3,15 +3,28 @@
 		"path": "views/global/index",
 		"style":{
 			"app-plus":{
+				"bounce":"vertical",
 				"scrollIndicator":"none"
 			}
 		}
 	},
 	{
-		"path": "views/china/index"
+		"path": "views/china/index",
+		"style":{
+			"app-plus":{
+				"bounce":"vertical",
+				"scrollIndicator":"none"
+			}
+		}
 	},
 	{
-		"path": "views/news/index"
+		"path": "views/news/index",
+		"style":{
+			"app-plus":{
+				"bounce":"vertical",
+				"scrollIndicator":"none"
+			}
+		}
 	}
 	],
 	"globalStyle": {
