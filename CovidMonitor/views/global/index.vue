@@ -1,17 +1,15 @@
 <template>
 	<view class="container">
-		<div id="ID1" class="ID1_Class">
-			<div id="search_div">
-				<div class="search_box">
-					<div class="search_icon"><img style="width: 7vw;" src="../../static/icon/search.png"></div>
-					<div class="Search_Country_Class"> <span>搜索国家</span> </div>
-				</div>
-				<div class="search_conditions">
-					<div class="filter_major_monotone_Class">
-						<img style="width: 7.2vw;" src="../../static/icon/setup.png">
-					</div>
-				</div>
+		<view class="status_bar">
+		          <!-- 这里是状态栏 -->
+		</view>
+		<div id="search_div">
+			<div class="search_box">
+				<div class="search_icon"><image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image></div>
+				<input class="Search_Country_Class" placeholder="搜索国家" />
 			</div>
+		</div>
+		<div id="ID1" class="ID1_Class">
 			<div id="world_data" style="padding-top: 8vw;">
 				<div class="World_Update_Class"> <span>全球疫情</span> </div>
 				<div class="world_list">
@@ -57,7 +55,7 @@
 					</div>
 					<ul>
 						<li>
-							<div class="Inf_county" @click="goon">
+							<div class="Inf_county" @click="clickTest">
 								<div class="country_name"><span>美国</span></div>
 								<div class="newadd_data"> <span>135K</span> </div>
 								<div class="infections_data"> <span>13K</span> </div>
@@ -91,16 +89,31 @@
 </template>
 
 <script>
-	export default {
-		name: "Global",
-		methods: {
-			goon() {
-				uni.navigateTo({
-					url: "../china/index",
-				});
-			}
+export default {
+	onShow: function (options) {
+	      this.loadData();
+		  plus.navigator.setStatusBarBackground("#fff");
+	    },
+	onPullDownRefresh() {
+	      this.loadData()
+	},
+	methods:{
+		loadData() {
+		         /*this.$http('/data', {}, 'get').then((res) => {
+		             //数据请求完成之后停止下拉刷新
+		             uni.stopPullDownRefresh();
+		             if (res.status) {
+		                 this.activityList = res.data
+		             }
+		         })*/
+		},
+		clickTest(){
+		uni.navigateTo({
+			url:'/views/global/country'
+		});
 		}
 	}
+}
 </script>
 
 <style>
@@ -122,14 +135,21 @@
 		font-smoothing: antialiased;
 		color: #222;
 	}
+	
+	.status_bar {
+	    height: var(--status-bar-height);
+	    width: 100%;
+	    background-color: #fff;
+	    position: fixed;
+	    z-index: 999;
+	}
 
 	.ID1_Class {
 		width: 100vw;
 		margin: 0 auto;
 		position: relative;
-		padding-top: 11.733vw;
+		padding-top: 20vw;
 		background-color: #fff;
-		box-shadow: 0 0 1.333vw rgba(0, 0, 0, .1);
 		min-height: 100%;
 		transform-origin: center top;
 	}
@@ -248,6 +268,14 @@
 	}
 	#search_div{
 		display: flex;
+		position: fixed;
+		top: var(--status-bar-height);
+		margin: 0 7vw;
+		padding: 5vw 0;
+		width: 86vw;
+		border-bottom: 1px solid #e8e8e8;
+		background-color: #fff;
+		z-index: 999;
 	}
 	.search_box_Class {
 		opacity: 0.5;
@@ -257,64 +285,32 @@
 		position: relative;
 		display: flex;
 		overflow: visible;
-		width: 66vw;
-		height: 14vw;
-		margin-left: 7vw;
+		width: 100vw;
+		height: 10vw;
 		border-radius: 3vw;
 		background-color: rgb(237, 240, 244);
 	}
 
-	.search_conditions {
-		position: relative;
-		overflow: visible;
-		width: 14vw;
-		height: 14vw;
-		margin-left: 6vw;
-		border-radius: 3vw;
-		background-color: rgb(80, 93, 111);
-	}
-
 	.Search_Country_Class {
-		opacity: 0.2;
+		opacity: 0.5;
 		position: relative;
-		margin-left: 5vw;
-		margin-top: 4.5vw;
+		margin-left: 3vw;
+		margin-top: 2.2vw;
 		overflow: visible;
-		width: 23vw;
 		white-space: nowrap;
 		text-align: margin-left;
 		font-family: SF Pro Display;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 4vw;
-		color: rgba(80, 93, 111, 1);
-	}
-
-	.filter_major_monotone_Class {
-		position: relative;
-		width: 6vw;
-		height: 6vw;
-		margin-left: 3.6vw;
-		margin-top: 3.6vw;
-		overflow: visible;
-	}
-
-	.conditions_icon {
-		overflow: visible;
-		position: relative;
-		margin-left: 0;
-		width: 6vw;
-		height: 6vw;
-		transform: matrix(1, 0, 0, 1, 0, 0);
+		color: rgba(112, 132, 156, 1.0);
 	}
 
 	.search_icon {
 		opacity: 0.2;
 		position: relative;
-		width: 5vw;
-		height: 5vw;
-		margin-left: 4vw;
-		margin-top: 4vw;
+		margin-left: 3vw;
+		margin-top: 2vw;
 		overflow: visible;
 	}
 

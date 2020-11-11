@@ -1,5 +1,15 @@
 <template>
 	<view class="container">
+		<view class="status_bar">
+		          <!-- 这里是状态栏 -->
+		</view>
+		<!--
+		<div id="search_div">
+			<div class="search_box">
+				<div class="search_icon"><image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image></div>
+				<input class="Search_Country_Class" placeholder="搜索省份/地区" />
+			</div>
+		</div>-->
 		<div class="main">
 			<div class="tabGlobal">
 				<div class="topdataWrap filterGray">
@@ -1014,14 +1024,68 @@
 		font-size: 4.267vw;
 		color: #222;
 	}
-
+	.status_bar {
+	      height: var(--status-bar-height);
+	      width: 100%;
+		  background-color: #fff;
+		  position: fixed;
+		  z-index: 999;
+	 }
+	 
+	 #search_div{
+	 	display: flex;
+	 	position: fixed;
+		top: var(--status-bar-height);
+	 	width: 100vw;
+		padding: 5vw 0;
+	 	border-bottom: 1px solid #e8e8e8;
+	 	background-color: #fff;
+	 	z-index: 999;
+	 }
+	 .search_box_Class {
+	 	opacity: 0.5;
+	 }
+	 
+	 .search_box {
+	 	position: relative;
+	 	display: flex;
+	 	overflow: visible;
+		margin: 0 5.3vw;;
+	 	width: 89.4vw;
+	 	height: 10vw;
+	 	border-radius: 3vw;
+	 	background-color: rgb(237, 240, 244);
+	 }
+	 
+	 .Search_Country_Class {
+	 	opacity: 0.5;
+	 	position: relative;
+	 	margin-left: 3vw;
+	 	margin-top: 2.2vw;
+	 	overflow: visible;
+	 	white-space: nowrap;
+	 	text-align: margin-left;
+	 	font-family: SF Pro Display;
+	 	font-style: normal;
+	 	font-weight: normal;
+	 	font-size: 4vw;
+	 	color: rgba(112, 132, 156, 1.0);
+	 }
+	 
+	 .search_icon {
+	 	opacity: 0.2;
+	 	position: relative;
+	 	margin-left: 3vw;
+	 	margin-top: 2vw;
+	 	overflow: visible;
+	 }
+	 
 	.main {
 		width: 100vw;
 		margin: 0 auto;
 		position: relative;
-		padding-top: 11.733vw;
+		padding-top: 12vw;
 		background-color: #fff;
-		box-shadow: 0 0 1.333vw rgba(0, 0, 0, .1);
 		min-height: 100%;
 		transform-origin: center top;
 	}

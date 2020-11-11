@@ -1,5 +1,8 @@
 <template>
 	<view class="container">
+		<view class="status_bar">
+		          <!-- 这里是状态栏 -->
+		</view>
 		<div class="main">
 			<div class="marquee-warp filterGray show">
 					<div class="marquee">
@@ -61,7 +64,7 @@
 					</div>
 					<div class="tailWraper filterGray pdBottom">
 						<div class="tail">
-							<div class="open-or-download"><span >前往国家卫健委了解更多疫情动态</span></div>
+							<div class="open-or-download"><span >前往国家卫健委了解更多疫情动态</span></div>					
 						</div>
 					</div>
 				</div>
@@ -92,13 +95,19 @@
 		font-smoothing: antialiased;
 		color: #222;
 	}
+	.status_bar {
+	    height: var(--status-bar-height);
+	    width: 100%;
+	    background-color: #fff;
+	    position: fixed;
+	    z-index: 999;
+	}
 	.main{
 		width: 100vw;
 		margin: 0 auto;
 		position: relative;
 		padding-top: 11.733vw;
 		background-color: #fff;
-		box-shadow: 0 0 1.333vw rgba(0, 0, 0, .1);
 		min-height: 100%;
 		transform-origin: center top;
 	}
