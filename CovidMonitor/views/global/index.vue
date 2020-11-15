@@ -1,11 +1,13 @@
 <template>
 	<view class="container">
 		<view class="status_bar">
-		          <!-- 这里是状态栏 -->
+			<!-- 这里是状态栏 -->
 		</view>
 		<div id="search_div">
 			<div class="search_box">
-				<div class="search_icon"><image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image></div>
+				<div class="search_icon">
+					<image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image>
+				</div>
 				<input class="Search_Country_Class" placeholder="搜索国家" />
 			</div>
 		</div>
@@ -47,41 +49,13 @@
 				<div class="Most_Infected_Class"> <span>各国统计</span> </div>
 				<div style="padding-top: 4vw;">
 					<div id="list_id">
-						<div class="country" style="width: 25vw;border-top-left-radius: 1.8vw;border-bottom-left-radius: 1.8vw;"><span>国家</span></div>
-						<div class="country" style="width: 20vw;"><span>新增</span></div>
-						<div class="country" style="width: 20vw;"><span>累计</span></div>
-						<div class="country" style="width: 20vw;"><span>治愈</span></div>
-						<div class="country" style="width: 13vw;border-top-right-radius: 1.8vw;border-bottom-right-radius: 1.8vw;"><span>死亡</span></div>
+						<div class="country" style="width: 24vw;border-top-left-radius: 1.8vw;border-bottom-left-radius: 1.8vw;"><span>国家</span></div>
+						<div class="country" style="width: 17vw;"><span>新增</span></div>
+						<div class="country" style="width: 23vw;"><span>累计</span></div>
+						<div class="country" style="width: 17vw;"><span>治愈</span></div>
+						<div class="country" style="width: 17vw;border-top-right-radius: 1.8vw;border-bottom-right-radius: 1.8vw;"><span>死亡</span></div>
 					</div>
-					<ul>
-						<li>
-							<div class="Inf_county" @click="clickTest">
-								<div class="country_name"><span>美国</span></div>
-								<div class="newadd_data"> <span>135K</span> </div>
-								<div class="infections_data"> <span>13K</span> </div>
-								<div class="recoveries_data"> <span>40K</span> </div>
-								<div class="deaths_data"> <span>6K</span> </div>
-							</div>
-						</li>
-						<li>
-							<div class="Inf_county">
-								<div class="country_name"><span>美国</span></div>
-								<div class="newadd_data"> <span>60K</span> </div>
-								<div class="infections_data"> <span>4K</span> </div>
-								<div class="recoveries_data"> <span>24K</span> </div>
-								<div class="deaths_data"> <span>4K</span> </div>
-							</div>
-						</li>
-						<li>
-							<div class="Inf_county">
-								<div class="country_name"><span>美国</span></div>
-								<div class="newadd_data"> <span>300K</span> </div>
-								<div class="infections_data"> <span>9K</span> </div>
-								<div class="recoveries_data"> <span>18K</span> </div>
-								<div class="deaths_data"> <span>8K</span> </div>
-							</div>
-						</li>
-					</ul>
+					<CountryData></CountryData>
 				</div>
 			</div>
 		</div>
@@ -89,31 +63,30 @@
 </template>
 
 <script>
-export default {
-	onShow: function (options) {
-	      this.loadData();
-		  plus.navigator.setStatusBarBackground("#fff");
-	    },
-	onPullDownRefresh() {
-	      this.loadData()
-	},
-	methods:{
-		loadData() {
-		         /*this.$http('/data', {}, 'get').then((res) => {
-		             //数据请求完成之后停止下拉刷新
-		             uni.stopPullDownRefresh();
-		             if (res.status) {
-		                 this.activityList = res.data
-		             }
-		         })*/
+	import CountryData from './data.vue'
+	export default {
+		onShow: function(options) {
+			this.loadData();
+			plus.navigator.setStatusBarBackground("#fff");
 		},
-		clickTest(){
-		uni.navigateTo({
-			url:'/views/global/country'
-		});
+		onPullDownRefresh() {
+			this.loadData()
+		},
+		components:{
+			CountryData
+		},
+		methods: {
+			loadData() {
+				/*this.$http('/data', {}, 'get').then((res) => {
+				    //数据请求完成之后停止下拉刷新
+				    uni.stopPullDownRefresh();
+				    if (res.status) {
+				        this.activityList = res.data
+				    }
+				})*/
+			}
 		}
 	}
-}
 </script>
 
 <style>
@@ -135,13 +108,13 @@ export default {
 		font-smoothing: antialiased;
 		color: #222;
 	}
-	
+
 	.status_bar {
-	    height: var(--status-bar-height);
-	    width: 100%;
-	    background-color: #fff;
-	    position: fixed;
-	    z-index: 999;
+		height: var(--status-bar-height);
+		width: 100%;
+		background-color: #fff;
+		position: fixed;
+		z-index: 999;
 	}
 
 	.ID1_Class {
@@ -153,6 +126,7 @@ export default {
 		min-height: 100%;
 		transform-origin: center top;
 	}
+
 	.Inf_county_Class {
 		opacity: 0.33;
 	}
@@ -243,16 +217,18 @@ export default {
 		font-size: 6vw;
 		color: rgba(36, 42, 64, 1);
 	}
-	.world_list{
-		    display: flex;
-		    flex-wrap: wrap;
-		    box-pack: center;
-		    justify-content: center;
-		    box-align: center;
-		    align-items: center;
-			padding-top: 4vw;
-		    padding-bottom: 2vw;
+
+	.world_list {
+		display: flex;
+		flex-wrap: wrap;
+		box-pack: center;
+		justify-content: center;
+		box-align: center;
+		align-items: center;
+		padding-top: 4vw;
+		padding-bottom: 2vw;
 	}
+
 	.Most_Infected_Class {
 		position: relative;
 		margin-left: 7vw;
@@ -266,7 +242,8 @@ export default {
 		font-size: 6vw;
 		color: rgba(36, 42, 64, 1);
 	}
-	#search_div{
+
+	#search_div {
 		display: flex;
 		position: fixed;
 		top: var(--status-bar-height);
@@ -277,6 +254,7 @@ export default {
 		background-color: #fff;
 		z-index: 999;
 	}
+
 	.search_box_Class {
 		opacity: 0.5;
 	}
@@ -313,76 +291,7 @@ export default {
 		margin-top: 2vw;
 		overflow: visible;
 	}
-
-	.country_name {
-		position: relative;
-		padding-top: 4.6vw;
-		overflow: visible;
-		width: 25vw;
-		white-space: nowrap;
-		text-align: center;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-size: 4vw;
-		color: rgb(33, 74, 118);
-	}
-
-	.newadd_data {
-		position: relative;
-		padding-top: 4.6vw;
-		overflow: visible;
-		width: 20vw;
-		white-space: nowrap;
-		text-align: center;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 4vw;
-		color: rgb(123, 70, 242);
-	}
-
-	.infections_data {
-		position: relative;
-		padding-top: 4.6vw;
-		overflow: visible;
-		width: 20vw;
-		white-space: nowrap;
-		text-align: center;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 4vw;
-		color: rgb(255, 191, 19);
-	}
-
-	.recoveries_data {
-		position: relative;
-		padding-top: 4.6vw;
-		overflow: visible;
-		width: 20vw;
-		white-space: nowrap;
-		text-align: center;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 4vw;
-		color: rgb(59, 183, 76);
-	}
-
-	.deaths_data {
-		position: relative;
-		padding-top: 4.6vw;
-		overflow: visible;
-		width: 13vw;
-		white-space: nowrap;
-		text-align: center;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 4vw;
-		color: rgb(246, 104, 166);
-	}
-
+	
 	#list_id {
 		display: flex;
 		margin-left: 7vw;

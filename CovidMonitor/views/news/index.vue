@@ -64,7 +64,7 @@
 					</div>
 					<div class="tailWraper filterGray pdBottom">
 						<div class="tail">
-							<div class="open-or-download"><span >前往国家卫健委了解更多疫情动态</span></div>					
+							<div class="open-or-download" @click="wsjkw"><span>前往国家卫健委了解更多疫情动态</span></div>					
 						</div>
 					</div>
 				</div>
@@ -80,7 +80,11 @@
 			}
 		},
 		methods: {
-
+			wsjkw(){
+				uni.navigateTo({
+					url:'web'
+				})
+			}
 		}
 	}
 </script>

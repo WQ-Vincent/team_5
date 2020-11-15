@@ -4,10 +4,10 @@
 			<!-- 这里是状态栏 -->
 		</view>
 		<div class="header">
-			<div class="goback" @click="goback">
+			<view class="goback" @click="goback()">
 				<image src="/static/icon/back.png" style="width: 6vw;height: 6vw;margin: 3vw 2vw;"></image>
-			</div>
-			<div class="country_name"> <span>印度</span> </div>
+			</view>
+			<div class="country_name"> <span>{{ctName}}</span> </div>
 		</div>
 		<div class="main">
 			<div>
@@ -47,467 +47,7 @@
 							</tr>
 						</thead>
 					</table>
-					<table>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>香港</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">5380</p>
-								</td>
-								<td>
-									<p class="bold">5146</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">107</p>
-									<p></p>
-								</td>
-
-							</tr>
-							<!---->
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>上海</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">1255</p>
-								</td>
-								<td>
-									<p class="bold">1143</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">7</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>新疆</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">980</p>
-								</td>
-								<td>
-									<p class="bold">918</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">3</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>台湾</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">578</p>
-								</td>
-								<td>
-									<p class="bold">526</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">7</p>
-									<p></p>
-								</td>
-
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>四川</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">773</p>
-								</td>
-								<td>
-									<p class="bold">727</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">3</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>陕西</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">478</p>
-								</td>
-								<td>
-									<p class="bold">434</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">3</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>广东</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">1949</p>
-								</td>
-								<td>
-									<p class="bold">1904</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">8</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>福建</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">456</p>
-								</td>
-								<td>
-									<p class="bold">419</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">1</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>内蒙古</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">305</p>
-								</td>
-								<td>
-									<p class="bold">272</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">1</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>天津</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">277</p>
-								</td>
-								<td>
-									<p class="bold">263</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">3</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>浙江</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">1290</p>
-								</td>
-								<td>
-									<p class="bold">1279</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">1</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>江苏</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">675</p>
-								</td>
-								<td>
-									<p class="bold">666</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">0</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>湖北</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">68147</p>
-								</td>
-								<td>
-									<p class="bold">63627</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">4512</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>北京</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">945</p>
-								</td>
-								<td>
-									<p class="bold">929</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">9</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>河南</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">1286</p>
-								</td>
-								<td>
-									<p class="bold">1258</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">22</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>河北</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">373</p>
-								</td>
-								<td>
-									<p class="bold">361</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">6</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>山西</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">218</p>
-								</td>
-								<td>
-									<p class="bold">213</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">0</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>辽宁</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">285</p>
-								</td>
-								<td>
-									<p class="bold">279</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">2</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>云南</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">214</p>
-								</td>
-								<td>
-									<p class="bold">208</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">2</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>重庆</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">589</p>
-								</td>
-								<td>
-									<p class="bold">580</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">6</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>甘肃</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">180</p>
-								</td>
-								<td>
-									<p class="bold">176</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">2</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>山东</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">848</p>
-								</td>
-								<td>
-									<p class="bold">839</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">7</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>湖南</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">1020</p>
-								</td>
-								<td>
-									<p class="bold">1015</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">4</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-						<tbody class="">
-							<tr class="areaBox">
-								<th class="area">
-									<p><span>黑龙江</span></p>
-									<p></p>
-								</th>
-								<td class="confirmTd">
-									<p class="bold">949</p>
-								</td>
-								<td>
-									<p class="bold">935</p>
-									<p></p>
-								</td>
-								<td>
-									<p class="bold">13</p>
-									<p></p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<AreaData></AreaData>
 				</div>
 				<div class="dataTips ac-dataqs moveNavLast"><span>数据来源：WHO</span></div>
 			</div>
@@ -516,16 +56,23 @@
 </template>
 
 <script>
+	import AreaData from './countryData.vue'
 	export default {
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				ctName: ''
 			}
 		},
+		onLoad(option) {
+			this.ctName=option.name;
+		},
+		components: {
+			AreaData
+		},
 		methods: {
-			goback(){
+			goback() {
 				uni.navigateBack({
-					animationDuration:1000
+					animationDuration:1000,
 				})
 			}
 		}
@@ -574,20 +121,21 @@
 		position: fixed;
 		z-index: 999;
 	}
-	
-	.main{
+
+	.main {
 		width: 100vw;
 		margin: 0 auto;
 		position: relative;
-		padding-top: 20vw;
+		padding-top: 25vw;
 		background-color: #fff;
 		min-height: 100%;
 		transform-origin: center top;
 	}
-	
-	.header{
+
+	.header {
 		position: fixed;
 		display: flex;
+		top: var(--status-bar-height);
 		width: 100vw;
 		border-bottom: 1px solid #e6e6e6;
 		background-color: #fff;
@@ -825,11 +373,6 @@
 		border-bottom-left-radius: 1.5vw;
 	}
 
-	.countryListWraper table th:last-child {
-		border-top-right-radius: 1.5vw;
-		border-bottom-right-radius: 1.5vw;
-	}
-
 	.countryListWraper tbody .areaBox {
 		font-size: 3.733vw;
 		border-bottom: 1px solid #f0f0f0;
@@ -840,16 +383,6 @@
 		line-height: 5.333vw;
 		min-height: 5.333vw;
 		padding-top: 2.667vw;
-	}
-
-	.countryListWraper tbody td p:last-child,
-	.countryListWraper tbody th p:last-child {
-		line-height: 3.2vw;
-		height: 3.2vw;
-		min-height: auto;
-		font-size: 2.667vw;
-		padding: 0 0 2.667vw;
-		color: #737373;
 	}
 
 	.countryListWraper table td:nth-child(2),

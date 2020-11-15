@@ -65,7 +65,8 @@
 							</tr>
 						</thead>
 					</table>
-					<table>
+					<AreaData></AreaData>
+					<!--<table>
 						<tbody class="">
 							<tr class="areaBox">
 								<th class="area">
@@ -90,7 +91,6 @@
 								</td>
 								
 							</tr>
-							<!---->
 						</tbody>
 						<tbody class="">
 							<tr class="areaBox">
@@ -969,7 +969,7 @@
 								<td colspan="6">贵州累计报告境外输入确诊病例1例。</td>
 							</tr>
 						</tbody>
-					</table>
+					</table>-->
 				</div>
 				<div class="dataTips ac-dataqs moveNavLast"><span>数据来源：各地卫健委每日公开数据</span></div>
 			</div>
@@ -978,11 +978,15 @@
 </template>
 
 <script>
+	import AreaData from './data.vue'
 	export default {
 		data() {
 			return {
 				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
 			}
+		},
+		components:{
+			AreaData
 		},
 		methods: {
 
@@ -1353,12 +1357,6 @@
 	    text-align: center;
 	    position: relative;
 	    border-right: 1px solid #fff;
-	}
-	.chinaListWraper tbody tr.tip td {
-	    text-align: left;
-	    line-height: 4.8vw;
-	    color: #737373;
-	    padding: 1.333vw 4.533vw;
 	}
 	.dataTips {
 	    color: #737373;

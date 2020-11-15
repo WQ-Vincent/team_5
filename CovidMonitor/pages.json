@@ -37,6 +37,15 @@
 					"scrollIndicator": "none"
 				}
 			}
+		},
+		{
+			"path": "views/news/web",
+			"style": {
+				"app-plus": {
+					"bounce": "vertical",
+					"scrollIndicator": "none"
+				}
+			}
 		}
 	],
 	"globalStyle": {
