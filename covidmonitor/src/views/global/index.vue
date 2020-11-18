@@ -4,45 +4,29 @@
 			<!-- 这里是状态栏 -->
 		</view>
 		<div id="search_div">
-			<div class="search_box">
-				<div class="search_icon">
-					<image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image>
+			<view class="search_box" @click="goSearch">
+				<div class="icon_text">
+					<div class="search_icon">
+						<image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image>
+					</div>
+					<p class="Search_Country_Class">搜索国家</p>
 				</div>
-				<input class="Search_Country_Class" placeholder="搜索国家" />
-			</div>
+			</view>
 		</div>
 		<div id="ID1" class="ID1_Class">
 			<div id="world_data">
 				<div class="World_Update_Class"> <span>全球疫情</span> </div>
 				<div class="world_list">
-					<div class="epidmc" style="background-image: linear-gradient(#E8DFFF,#fff);">
-						<div class="epidmc_name"> <span>累计确诊</span> </div>
-						<div class="epidmc_data" style="color: rgb(123,70,242);"> <span>50646963</span> </div>
-						<div class="epidmc_add" style="background-color: rgba(123,70,242,0.1);">
-							<div class="data_change" style="color: rgb(123,70,242);"> <span>+580451</span> </div>
-						</div>
-					</div>
-					<div class="epidmc" style="background-image: linear-gradient(#FFD3E6,#fff);">
-						<div class="epidmc_name"> <span>累计死亡</span> </div>
-						<div class="epidmc_data" style="color: rgb(231,71,130);"> <span>1257384</span> </div>
-						<div class="epidmc_add" style="background-color: rgba(231,71,130,0.1);">
-							<div class="data_change" style="color: rgb(231,71,130);"> <span>+6880</span> </div>
-						</div>
-					</div>
-					<div class="epidmc" style="background-image: linear-gradient(#D6FFDC,#fff);">
-						<div class="epidmc_name"> <span>累计治愈</span> </div>
-						<div class="epidmc_data" style="color: rgb(40,194,133);"> <span>35432796</span> </div>
-						<div class="epidmc_add" style="background-color: rgba(40,194,133,0.1);">
-							<div class="data_change" style="color: rgb(40,194,133);"><span>+257218</span> </div>
-						</div>
-					</div>
-					<div class="epidmc" style="background-image: linear-gradient(#FFF2D5,#fff);">
-						<div class="epidmc_name"> <span>现有确诊</span> </div>
-						<div class="epidmc_data" style="color: rgb(255,199,66);"> <span>46058</span> </div>
-						<div class="epidmc_add" style="background-color: rgba(255,199,66,0.1);">
-							<div class="data_change" style="color: rgb(255,199,66);"> <span>+644</span> </div>
-						</div>
-					</div>
+					<Globalblock
+						v-for="(item,index) of list"
+						v-bind:style="{background: 'linear-gradient(' + item.lineargradientone + ', #fff)'}"
+						:key = "index"
+						:attribute = "item.attribute"
+						:totalnumber = "item.totalnumber"
+						:addnumber = "item.addnumber"
+						:textcolor = "item.textcolor"
+						:bgcolor = "item.bgcolor"
+					></Globalblock>
 				</div>
 			</div>
 			<div id="most_infected" style="padding-top: 2vw;">
@@ -63,8 +47,38 @@
 </template>
 
 <script>
+	import Globalblock from './globalblock.vue'
 	import CountryData from './data.vue'
 	export default {
+		data() {
+			return{
+				list:[
+				{attribute:'累计确诊',
+				totalnumber:'55832242',
+				addnumber:'+580451',
+				lineargradientone:'#E8DFFF',
+				textcolor:'rgb(123,70,242)',
+				bgcolor:'rgba(123,70,242,0.1)'},
+				{attribute:'累计死亡',
+				totalnumber:'1337965',
+				addnumber:'+6880',
+				lineargradientone:'#FFD3E6',
+				textcolor:'rgb(231,71,130)',
+				bgcolor:'rgba(231,71,130,0.1)'},
+				{attribute:'累计治愈',
+				totalnumber:'38564110',
+				addnumber:'+257218',
+				lineargradientone:'#D6FFDC',
+				textcolor:'rgb(40,194,133)',
+				bgcolor:'rgba(40,194,133,0.1)'},
+				{attribute:'现有确诊',
+				totalnumber:'15930167',
+				addnumber:'+644',
+				lineargradientone:'#FFF2D5',
+				textcolor:'rgb(255,199,66)',
+				bgcolor:'rgba(255,199,66,0.1)'},]	
+			}
+		},
 		onShow: function(options) {
 			this.loadData();
 			plus.navigator.setStatusBarBackground("#fff");
@@ -73,21 +87,23 @@
 			this.loadData()
 		},
 		components: {
-			CountryData
+			CountryData,
+			Globalblock
 		},
 		methods: {
 			loadData() {
 				uni.stopPullDownRefresh();
+			},
+			goSearch() {
+				uni.navigateTo({
+					url: 'search'
+				});
 			}
 		}
 	}
 </script>
 
 <style>
-	.mediaViewInfo {}
-
-	:root {}
-
 	* {
 		margin: 0;
 		padding: 0;
@@ -120,8 +136,64 @@
 		min-height: 100%;
 		transform-origin: center top;
 	}
-	
-	#world_data{
+
+	#search_div {
+		display: flex;
+		position: fixed;
+		top: var(--status-bar-height);
+		margin: 0 7vw;
+		padding: 5vw 0;
+		width: 86vw;
+		border-bottom: 1px solid #e8e8e8;
+		background-color: #fff;
+		z-index: 999;
+	}
+
+	.icon_text {
+		position: relative;
+		display: flex;
+		width: fit-content;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.search_box_Class {
+		opacity: 0.5;
+	}
+
+	.search_box {
+		position: relative;
+		display: flex;
+		overflow: visible;
+		width: 100vw;
+		height: 10vw;
+		border-radius: 3vw;
+		background-color: rgb(237, 240, 244);
+	}
+
+	.Search_Country_Class {
+		opacity: 0.5;
+		position: relative;
+		margin-left: 2vw;
+		margin-top: 2.2vw;
+		overflow: visible;
+		white-space: nowrap;
+		text-align: margin-left;
+		font-family: SF Pro Display;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 4vw;
+		color: rgba(112, 132, 156, 1.0);
+	}
+
+	.search_icon {
+		opacity: 0.2;
+		position: relative;
+		margin-top: 2vw;
+		overflow: visible;
+	}
+
+	#world_data {
 		padding-top: 25vw;
 	}
 
@@ -141,65 +213,6 @@
 
 	.epidmc_Class {
 		opacity: 0.1;
-	}
-
-	.epidmc {
-		position: relative;
-		overflow: visible;
-		width: 42vw;
-		height: 35vw;
-		border-radius: 3.5vw;
-		margin: 0 1.2vw;
-	}
-
-	.epidmc_add {
-		position: relative;
-		overflow: visible;
-		width: fit-content;
-		height: 7vw;
-		right: 2vw;
-		top: 11vw;
-		border-radius: 4vw;
-		float: right;
-	}
-
-	.epidmc_data {
-		position: relative;
-		margin-left: 6vw;
-		top: 8vw;
-		overflow: visible;
-		width: fit-content;
-		white-space: nowrap;
-		text-align: margin-left;
-		font-size: 6vw;
-		font-weight: 700;
-	}
-
-	.epidmc_name {
-		position: relative;
-		margin-left: 6vw;
-		top: 4vw;
-		overflow: visible;
-		width: 21vw;
-		white-space: nowrap;
-		text-align: margin-left;
-		font-style: normal;
-		font-size: 4vw;
-		color: rgba(80, 93, 111, 1);
-	}
-
-	.data_change {
-		position: relative;
-		margin: 0 2.8vw;
-		top: 0.6vw;
-		overflow: visible;
-		width: fit-content;
-		white-space: nowrap;
-		text-align: margin-left;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 4vw;
 	}
 
 	.World_Update_Class {
@@ -239,55 +252,6 @@
 		font-weight: normal;
 		font-size: 6vw;
 		color: rgba(36, 42, 64, 1);
-	}
-
-	#search_div {
-		display: flex;
-		position: fixed;
-		top: var(--status-bar-height);
-		margin: 0 7vw;
-		padding: 5vw 0;
-		width: 86vw;
-		border-bottom: 1px solid #e8e8e8;
-		background-color: #fff;
-		z-index: 999;
-	}
-
-	.search_box_Class {
-		opacity: 0.5;
-	}
-
-	.search_box {
-		position: relative;
-		display: flex;
-		overflow: visible;
-		width: 100vw;
-		height: 10vw;
-		border-radius: 3vw;
-		background-color: rgb(237, 240, 244);
-	}
-
-	.Search_Country_Class {
-		opacity: 0.5;
-		position: relative;
-		margin-left: 3vw;
-		margin-top: 2.2vw;
-		overflow: visible;
-		white-space: nowrap;
-		text-align: margin-left;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 4vw;
-		color: rgba(112, 132, 156, 1.0);
-	}
-
-	.search_icon {
-		opacity: 0.2;
-		position: relative;
-		margin-left: 3vw;
-		margin-top: 2vw;
-		overflow: visible;
 	}
 
 	#list_id {

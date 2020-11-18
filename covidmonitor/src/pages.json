@@ -46,6 +46,15 @@
 					"scrollIndicator": "none"
 				}
 			}
+		},
+		{
+			"path": "views/global/search",
+			"style": {
+				"app-plus": {
+					"bounce": "vertical",
+					"scrollIndicator": "none"
+				}
+			}
 		}
 	],
 	"globalStyle": {

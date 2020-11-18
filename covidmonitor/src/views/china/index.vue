@@ -17,37 +17,18 @@
 					<div class="timeNum">
 						<p class="d"> 统计截至 <span>2020-11-09 21:59:46</span><em class=""> 更新于<span>45分钟</span>前</em></p>
 					</div>
-					<div class="recentNumber">
-						<div class="icbar confirm">
-							<div class="add"> 较上日<span>+50</span></div>
-							<div class="number">92251</div>
-							<div class="text">累计确诊</div>
-						</div>
-						<div class="icbar heal">
-							<div class="add"> 较上日<span>+25</span></div>
-							<div class="number">86901</div>
-							<div class="text">累计治愈</div>
-						</div>
-						<div class="icbar dead">
-							<div class="add"> 较上日<span>0</span></div>
-							<div class="number">4748</div>
-							<div class="text">累计死亡</div>
-						</div>
-						<div class="icbar nowConfirm">
-							<div class="add"> 较上日<span>+31</span></div>
-							<div class="number">602</div>
-							<div class="text"><span>现有确诊</span></div>
-						</div>
-						<div class="icbar nowSevere">
-							<div class="add"> 较上日<span>+9</span></div>
-							<div class="number">804</div>
-							<div class="text">无症状感染者</div>
-						</div>
-						<div class="icbar import">
-							<div class="add"> 较上日<span>+32</span></div>
-							<div class="number">3603</div>
-							<div class="text">境外输入</div>
-						</div>
+					
+					<!-- littleblock模板 -->
+					<div class="recentNumber">					
+						<Littleblock
+							v-for="(item,index) of list"
+							v-bind:style="{background: 'linear-gradient(' + item.lineargradientone + ', ' + item.lineargradienttwo + ')'}"
+							:key = "index"
+							:addnumber = "item.addnumber"
+							:totalnumber = "item.totalnumber"
+						 	:attribute = "item.attribute"
+						 	:textcolor = "item.textcolor"
+						></Littleblock>
 					</div>
 				</div>
 			</div>
@@ -75,15 +56,52 @@
 </template>
 
 <script>
+	import Littleblock from './littleblock.vue'
 	import AreaData from './data.vue'
 	export default {
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				list:[{addnumber:'+14',
+					totalnumber:'92490',
+					attribute:'累计确诊',
+					lineargradientone:'#fde1cf',
+					lineargradienttwo:'#fdfdfd',
+					textcolor:'#be7761'},
+					{addnumber:'+54',
+					totalnumber:'87208',
+					attribute:'累计治愈',
+					lineargradientone:'#d3f8e5',
+					lineargradienttwo:'#fdfdfd',
+					textcolor:'#178b50'},
+					{addnumber:'+0',
+					totalnumber:'4749',
+					attribute:'累计死亡',
+					lineargradientone:'#ffc9ca',
+					lineargradienttwo:'#fdfdfd',
+					textcolor:'#b55355'},
+					{addnumber:'+50',
+					totalnumber:'602',
+					attribute:'现有确诊',
+					lineargradientone:'#f1e4fd',
+					lineargradienttwo:'#fdfdfd',
+					textcolor:'#a65dad'},
+					{addnumber:'+5',
+					totalnumber:'456',
+					attribute:'无症状感染者',
+					lineargradientone:'#f6f8c6',
+					lineargradienttwo:'#fdfdfd',
+					textcolor:'#93994d'},
+					{addnumber:'+7',
+					totalnumber:'3723',
+					attribute:'境外输入',
+					lineargradientone:'#cbe0fa',
+					lineargradienttwo:'#fdfdfd',
+					textcolor:'#546fab'},]
 			}
 		},
 		components:{
-			AreaData
+			AreaData,
+			Littleblock
 		},
 		methods: {
 
@@ -96,20 +114,12 @@
 		margin: 0;
 		padding: 0;
 	}
-
 	ul {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
-
-	dd,
-	dl,
-	dt,
-	h1,
-	h2,
-	h3,
-	h4,
+	dd,	dl,dt,h1,h2,h3,h4,
 	p {
 		margin: 0;
 		font-size: 1em;
@@ -234,118 +244,6 @@
 		box-align: center;
 		align-items: center;
 		padding-bottom: 6vw;
-	}
-
-	.recentNumber .icbar:first-child,.icbar:nth-child(4) {
-		border-radius: 2.0vw 0 0 0;
-	}
-
-	.recentNumber .icbar.confirm {
-		background-image: linear-gradient( #fde1cf, #fdfdfd);
-	}
-
-	.recentNumber .icbar {
-		width: 29.6vw;
-		margin: 0 .533vw .533vw 0;
-		padding: 1.6vw 0 3.2vw;
-		position: relative;
-		text-align: center;
-	}
-
-	.recentNumber .add {
-		padding-top: 1.6vw;
-		color: #7c7c7c;
-		font-size: 2.667vw;
-		line-height: 2.667vw;
-		height: 2.667vw;
-		font-weight: 500;
-	}
-
-	.recentNumber .icbar.confirm .add em,
-	.recentNumber .icbar.confirm .add span,
-	.recentNumber .icbar.confirm .number {
-		color: #be7761;
-	}
-
-	.recentNumber .icbar .number {
-		font-size: 5.867vw;
-		line-height: 5.867vw;
-		height: 5.867vw;
-		font-weight: 600;
-		padding-top: 1.6vw;
-	}
-
-	.recentNumber .icbar .text {
-		font-size: 3.2vw;
-		height: 3.2vw;
-		line-height: 3.2vw;
-		color: #222;
-		font-weight: 500;
-		margin-top: 1.6vw;
-	}
-
-	.recentNumber .icbar.heal {
-		background-image: linear-gradient( #d3f8e5, #fdfdfd);
-	}
-
-	.recentNumber .icbar.heal .add em,
-	.recentNumber .icbar.heal .add span,
-	.recentNumber .icbar.heal .number {
-		color: #178b50;
-	}
-
-	.recentNumber .icbar:nth-child(3),.icbar:nth-child(6) {
-		border-radius: 0 2.0vw 0 0;
-	}
-
-	.recentNumber .icbar:last-child,
-	.recentNumber .icbar:nth-child(3) {
-		margin-right: 0;
-	}
-
-	.recentNumber .icbar.dead {
-		background-image: linear-gradient( #ffc9ca, #fdfdfd);
-	}
-	.recentNumber .icbar.dead .add em,
-	.recentNumber .icbar.dead .add span,
-	.recentNumber .icbar.dead .number {
-		color: #b55355;
-	}
-
-	.recentNumber .icbar.nowConfirm {
-		background-image: linear-gradient( #f1e4fd, #fdfdfd);
-	}
-
-	.recentNumber .icbar.nowConfirm .add em,
-	.recentNumber .icbar.nowConfirm .add span,
-	.recentNumber .icbar.nowConfirm .number {
-		color: #a65dad;
-	}
-
-	.recentNumber .icbar.nowConfirm .text span {
-		position: relative;
-		margin-right: 3.733vw;
-		display: inline-block;
-	}
-
-	.recentNumber .icbar.nowSevere {
-		background-image: linear-gradient( #f6f8c6, #fdfdfd);
-	}
-
-	.recentNumber .icbar.nowSevere .add em,
-	.recentNumber .icbar.nowSevere .add span,
-	.recentNumber .icbar.nowSevere .number {
-		color: #93994d;
-	}
-
-	.recentNumber .icbar.import {
-		background-image: linear-gradient( #cbe0fa, #fdfdfd);
-	}
-
-	.recentNumber .icbar.import .add em,
-	.recentNumber .icbar.import .add span,
-	.recentNumber .icbar.import .number {
-		color: #546fab;
 	}
 
 	.chianMapWraper {
