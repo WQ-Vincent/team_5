@@ -3,43 +3,27 @@
 		<view class="status_bar">
 			<!-- 这里是状态栏 -->
 		</view>
-		<div id="search_div">
-			<view class="search_box" @click="goSearch">
-				<div class="icon_text">
-					<div class="search_icon">
-						<image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image>
-					</div>
-					<p class="Search_Country_Class">搜索国家</p>
-				</div>
-			</view>
+		<div id="header">
+			<div class="World_Update_Class" @click="this.onPullDownRefresh"> <span>全球疫情</span> </div>
 		</div>
 		<div id="ID1" class="ID1_Class">
 			<div id="world_data">
-				<div class="World_Update_Class"> <span>全球疫情</span> </div>
-				<div class="world_list">
-					<Globalblock
-						v-for="(item,index) of list"
-						v-bind:style="{background: 'linear-gradient(' + item.lineargradientone + ', #fff)'}"
-						:key = "index"
-						:attribute = "item.attribute"
-						:totalnumber = "item.totalnumber"
-						:addnumber = "item.addnumber"
-						:textcolor = "item.textcolor"
-						:bgcolor = "item.bgcolor"
-					></Globalblock>
-				</div>
+				<Globalblock></Globalblock>
 			</div>
 			<div id="most_infected" style="padding-top: 2vw;">
-				<div class="Most_Infected_Class"> <span>各国统计</span> </div>
+				<div class="Most_Infected_Class">
+					<image style="width: 6vw;height: 6vw;padding-right: 2vw;" src="/static/icon/rank.png"></image>
+					<span>各国统计</span>
+				</div>
 				<div style="padding-top: 4vw;">
 					<div id="list_id">
-						<div class="country" style="width: 30vw;border-top-left-radius: 1.8vw;border-bottom-left-radius: 1.8vw;"><span>国家</span></div>
-						<div class="country" style="width: 14vw;"><span>新增</span></div>
+						<div class="country" style="width: 26vw;border-top-left-radius: 1.8vw;border-bottom-left-radius: 1.8vw;"><span>国家</span></div>
+						<div class="country" style="width: 16vw;"><span>新增</span></div>
 						<div class="country" style="width: 22vw;"><span>累计</span></div>
 						<div class="country" style="width: 20vw;"><span>治愈</span></div>
-						<div class="country" style="width: 14vw;border-top-right-radius: 1.8vw;border-bottom-right-radius: 1.8vw;"><span>死亡</span></div>
+						<div class="country" style="width: 16vw;border-top-right-radius: 1.8vw;border-bottom-right-radius: 1.8vw;"><span>死亡</span></div>
 					</div>
-					<CountryData ref="child1"></CountryData>
+					<CountryData></CountryData>
 				</div>
 			</div>
 		</div>
@@ -51,32 +35,8 @@
 	import CountryData from './data.vue'
 	export default {
 		data() {
-			return{
-				list:[
-				{attribute:'累计确诊',
-				totalnumber:'55832242',
-				addnumber:'+580451',
-				lineargradientone:'#E8DFFF',
-				textcolor:'rgb(123,70,242)',
-				bgcolor:'rgba(123,70,242,0.1)'},
-				{attribute:'累计死亡',
-				totalnumber:'1337965',
-				addnumber:'+6880',
-				lineargradientone:'#FFD3E6',
-				textcolor:'rgb(231,71,130)',
-				bgcolor:'rgba(231,71,130,0.1)'},
-				{attribute:'累计治愈',
-				totalnumber:'38564110',
-				addnumber:'+257218',
-				lineargradientone:'#D6FFDC',
-				textcolor:'rgb(40,194,133)',
-				bgcolor:'rgba(40,194,133,0.1)'},
-				{attribute:'现有确诊',
-				totalnumber:'15930167',
-				addnumber:'+644',
-				lineargradientone:'#FFF2D5',
-				textcolor:'rgb(255,199,66)',
-				bgcolor:'rgba(255,199,66,0.1)'},]	
+			return {
+
 			}
 		},
 		onShow: function(options) {
@@ -93,11 +53,6 @@
 		methods: {
 			loadData() {
 				uni.stopPullDownRefresh();
-			},
-			goSearch() {
-				uni.navigateTo({
-					url: 'search'
-				});
 			}
 		}
 	}
@@ -137,64 +92,20 @@
 		transform-origin: center top;
 	}
 
-	#search_div {
+	#header {
 		display: flex;
 		position: fixed;
 		top: var(--status-bar-height);
-		margin: 0 7vw;
-		padding: 5vw 0;
-		width: 86vw;
+		margin: 0 6vw;
+		padding: 5vw 0 3vw 0;
+		width: 88vw;
 		border-bottom: 1px solid #e8e8e8;
 		background-color: #fff;
 		z-index: 999;
 	}
 
-	.icon_text {
-		position: relative;
-		display: flex;
-		width: fit-content;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	.search_box_Class {
-		opacity: 0.5;
-	}
-
-	.search_box {
-		position: relative;
-		display: flex;
-		overflow: visible;
-		width: 100vw;
-		height: 10vw;
-		border-radius: 3vw;
-		background-color: rgb(237, 240, 244);
-	}
-
-	.Search_Country_Class {
-		opacity: 0.5;
-		position: relative;
-		margin-left: 2vw;
-		margin-top: 2.2vw;
-		overflow: visible;
-		white-space: nowrap;
-		text-align: margin-left;
-		font-family: SF Pro Display;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 4vw;
-		color: rgba(112, 132, 156, 1.0);
-	}
-
-	.search_icon {
-		opacity: 0.2;
-		position: relative;
-		margin-top: 2vw;
-		overflow: visible;
-	}
-
 	#world_data {
-		padding-top: 25vw;
+		padding-top: 20vw;
 	}
 
 	.Inf_county_Class {
@@ -205,9 +116,9 @@
 		display: flex;
 		position: relative;
 		overflow: visible;
-		width: 86vw;
+		width: 88vw;
 		height: 15vw;
-		margin-left: 7vw;
+		margin-left: 6vw;
 		border-bottom: 1px solid #e8e8e8;
 	}
 
@@ -217,7 +128,6 @@
 
 	.World_Update_Class {
 		position: relative;
-		margin-left: 7vw;
 		overflow: visible;
 		width: fit-content;
 		white-space: nowrap;
@@ -229,20 +139,9 @@
 		color: rgba(36, 42, 64, 1);
 	}
 
-	.world_list {
-		display: flex;
-		flex-wrap: wrap;
-		box-pack: center;
-		justify-content: center;
-		box-align: center;
-		align-items: center;
-		padding-top: 4vw;
-		padding-bottom: 2vw;
-	}
-
 	.Most_Infected_Class {
 		position: relative;
-		margin-left: 7vw;
+		margin-left: 6vw;
 		overflow: visible;
 		width: fit-content;
 		white-space: nowrap;
@@ -250,15 +149,15 @@
 		font-family: SF Pro Display;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 6vw;
+		font-size: 5vw;
 		color: rgba(36, 42, 64, 1);
 	}
 
 	#list_id {
 		display: flex;
-		margin-left: 7vw;
+		margin-left: 6vw;
 		position: relative;
-		width: 86vw;
+		width: 88vw;
 	}
 
 	.country {

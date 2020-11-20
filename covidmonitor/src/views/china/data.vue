@@ -1,5 +1,5 @@
 <template>
-	<table>
+	<table style="margin-top: 2vw;">
 		<tbody v-for="(area,index) in areas">
 			<tr class="areaBox">
 				<th class="area">
@@ -199,5 +199,20 @@
 	    line-height: 4.8vw;
 	    color: #737373;
 	    padding: 1.333vw 4.533vw;
+	}
+	.areaBox td:nth-child(2){
+		color:rgb(255, 191, 19);
+	}
+	.areaBox td:nth-child(3){
+		color:rgb(225, 143, 61);
+	}
+	.areaBox td:nth-child(4){
+		color:rgb(123, 70, 242);
+	}
+	.areaBox td:nth-child(5){
+		color:rgb(59, 183, 76);
+	}
+	.areaBox td:nth-child(6){
+		color:rgb(246, 104, 166);
 	}
 </style>

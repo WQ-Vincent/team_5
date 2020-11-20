@@ -1,3 +1,4 @@
+<!--某国疫情-->
 <template>
 	<view class="container">
 		<view class="status_bar">

@@ -108,25 +108,23 @@
 		position: relative;
 		width: 86vw;
 	}
-
 	.country_name {
 		position: relative;
 		padding-top: 4.6vw;
 		overflow: visible;
-		width: 30vw;
-		white-space: nowrap;
+		width: 26vw;
+		white-space: normal;
 		text-align: center;
 		font-family: SF Pro Display;
 		font-style: normal;
 		font-size: 3.5vw;
 		color: rgb(33, 74, 118);
 	}
-
 	.newadd_data {
 		position: relative;
 		padding-top: 4.6vw;
 		overflow: visible;
-		width: 14vw;
+		width: 16vw;
 		white-space: nowrap;
 		text-align: center;
 		font-family: SF Pro Display;
@@ -134,7 +132,6 @@
 		font-size: 3.5vw;
 		color: rgb(255, 191, 19);
 	}
-
 	.infections_data {
 		position: relative;
 		padding-top: 4.6vw;
@@ -147,7 +144,6 @@
 		font-size: 3.5vw;
 		color: rgb(123, 70, 242);
 	}
-
 	.recoveries_data {
 		position: relative;
 		padding-top: 4.6vw;
@@ -160,12 +156,11 @@
 		font-size: 3.5vw;
 		color: rgb(59, 183, 76);
 	}
-
 	.deaths_data {
 		position: relative;
 		padding-top: 4.6vw;
 		overflow: visible;
-		width: 14vw;
+		width: 16vw;
 		white-space: nowrap;
 		text-align: center;
 		font-family: SF Pro Display;

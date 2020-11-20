@@ -1,3 +1,4 @@
+<!--某国省份统计列表-->
 <template>
 	<table>
 		<tbody v-for="(area,index) in areas" :key=index>
@@ -33,19 +34,19 @@
 		methods: {
 			loadArea() {
 				this.areas = [{//浏览器端示例
-						name: '香港',
+						name: '地区1',
 						allinf: '5380',
 						recov: '5146',
 						death: '107'
 					},
 					{
-						name: '上海',
+						name: '地区2',
 						allinf: '1255',
 						recov: '1143',
 						death: '7'
 					},
 					{
-						name: '新疆',
+						name: '地区3',
 						allinf: '980',
 						recov: '918',
 						death: '3'

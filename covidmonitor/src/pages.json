@@ -30,7 +30,7 @@
 			}
 		},
 		{
-			"path": "views/global/country",
+			"path": "views/china/country",
 			"style": {
 				"app-plus": {
 					"bounce": "vertical",
@@ -48,7 +48,7 @@
 			}
 		},
 		{
-			"path": "views/global/search",
+			"path": "views/china/search",
 			"style": {
 				"app-plus": {
 					"bounce": "vertical",

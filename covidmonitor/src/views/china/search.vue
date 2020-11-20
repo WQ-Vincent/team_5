@@ -9,7 +9,7 @@
 					<image style="width: 6vw;height: 6vw;" src="/static/icon/search.png"></image>
 				</div>
 				<input class="Search_text" focus="true" type="text" confirm-type="search" @input="input" @confirm="confirm"
-				 placeholder="搜索国家" />
+				 placeholder="搜索省份/地区" />
 			</div>
 		</div>
 		<div id="ID1" class="ID1_Class">
@@ -43,7 +43,7 @@
 			},
 			confirm(e) {
 				uni.navigateTo({
-					url: '/views/global/country?name=' + e.target.value
+					url: '/views/china/country?name=' + e.target.value
 				});
 			}
 		}
