@@ -1,7 +1,7 @@
-# team_6
-html5移动应用开发课程第五组
-## 新冠疫情数据APP——CovidMonitor
-
+# CovidMonitor    
+##新冠疫情数据APP     
+###HTML移动应用开发课程第五组      
+      
 ### npm运行
 ```
 npm install
@@ -11,7 +11,7 @@ npm run serve
 ```
 ### 技术栈
 vue2 + uni-app + HTML5plus + python + webpack 
-
+       
 ### 项目目录结构
 │          
 ├─covidmonitor           //项目文件     
