@@ -169,7 +169,7 @@
 	.epidmc {
 		position: relative;
 		overflow: visible;
-		width: 42vw;
+		width: 43vw;
 		height: 35vw;
 		border-radius: 3.5vw;
 		margin: 0 1.2vw;
@@ -188,7 +188,7 @@
 
 	.epidmc_data {
 		position: relative;
-		margin-left: 6vw;
+		margin-left: 5vw;
 		top: 8vw;
 		overflow: visible;
 		width: fit-content;
@@ -200,7 +200,7 @@
 
 	.epidmc_name {
 		position: relative;
-		margin-left: 6vw;
+		margin-left: 5vw;
 		top: 4vw;
 		overflow: visible;
 		width: 21vw;

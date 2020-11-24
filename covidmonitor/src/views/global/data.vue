@@ -104,9 +104,9 @@
 <style>
 	.Inf_county {
 		display: flex;
-		margin-left: 7vw;
+		margin-left: 5vw;
 		position: relative;
-		width: 86vw;
+		width: 90vw;
 	}
 	.country_name {
 		position: relative;

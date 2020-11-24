@@ -96,9 +96,9 @@
 		display: flex;
 		position: fixed;
 		top: var(--status-bar-height);
-		margin: 0 6vw;
+		margin: 0 5vw;
 		padding: 5vw 0 3vw 0;
-		width: 88vw;
+		width: 90vw;
 		border-bottom: 1px solid #e8e8e8;
 		background-color: #fff;
 		z-index: 999;
@@ -116,9 +116,9 @@
 		display: flex;
 		position: relative;
 		overflow: visible;
-		width: 88vw;
+		width: 90vw;
 		height: 15vw;
-		margin-left: 6vw;
+		margin-left: 5vw;
 		border-bottom: 1px solid #e8e8e8;
 	}
 
@@ -141,7 +141,7 @@
 
 	.Most_Infected_Class {
 		position: relative;
-		margin-left: 6vw;
+		margin-left: 5vw;
 		overflow: visible;
 		width: fit-content;
 		white-space: nowrap;
@@ -155,9 +155,9 @@
 
 	#list_id {
 		display: flex;
-		margin-left: 6vw;
+		margin-left: 5vw;
 		position: relative;
-		width: 88vw;
+		width: 90vw;
 	}
 
 	.country {
